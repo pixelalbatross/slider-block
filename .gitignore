@@ -1,0 +1,23 @@
+#---------------------------
+# Project
+#---------------------------
+vendor/
+node_modules/
+.node_history
+package-lock.json
+**/package-lock.json
+
+#---------------------------
+# System
+#---------------------------
+*~
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.svn
+.cvs
+*.bak
+*.swp
+Thumbs.db
+Desktop.ini
