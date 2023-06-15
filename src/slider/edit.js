@@ -62,7 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
 	});
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'swiper-wrapper',
+			className: 'swiper-wrapper wp-block-pixelalbatross-slider__wrapper',
 		},
 		{
 			allowedBlocks: ['pixelalbatross/slide'],
@@ -93,6 +93,17 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<div {...blockProps}>
 				<div {...innerBlocksProps} />
+
+				{navigation && (
+					<>
+						<div className="swiper-button-next wp-block-pixelalbatross-slider__button-next"></div>
+						<div className="swiper-button-prev wp-block-pixelalbatross-slider__button-prev"></div>
+					</>
+				)}
+
+				{pagination && (
+					<div className="swiper-pagination wp-block-pixelalbatross-slider__pagination"></div>
+				)}
 			</div>
 
 			<BlockControls>

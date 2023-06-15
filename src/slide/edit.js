@@ -46,7 +46,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const blockProps = useBlockProps({ className: 'swiper-slide' });
 	const innerBlocksProps = useInnerBlocksProps(
-		{},
+		{ className: 'wp-block-pixelalbatross-slide__wrapper' },
 		{
 			allowedBlocks,
 			template: [

@@ -39,41 +39,6 @@ function pixelalbatross_slider_block_init() {
 add_action( 'init', 'pixelalbatross_slider_block_init' );
 
 /**
- * Show slider navigation.
- *
- * @param  array $options Array of slider options.
- * @return void
- */
-function pixelalbatross_slider_block_show_navigation( $options ) {
-
-	if ( empty( $options['navigation'] ) ) {
-		return;
-	}
-	?>
-		<div class="swiper-button-next"></div>
-		<div class="swiper-button-prev"></div>
-	<?php
-}
-add_action( 'pixelalbatross_slider_block_after_slides', 'pixelalbatross_slider_block_show_navigation', 20 );
-
-/**
- * Show slider pagination.
- *
- * @param  array $options Array of slider options.
- * @return void
- */
-function pixelalbatross_slider_block_show_pagination( $options ) {
-
-	if ( empty( $options['pagination'] ) ) {
-		return;
-	}
-	?>
-		<div class="swiper-pagination"></div>
-	<?php
-}
-add_action( 'pixelalbatross_slider_block_after_slides', 'pixelalbatross_slider_block_show_pagination', 30 );
-
-/**
  * Handles JavaScript detection.
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.

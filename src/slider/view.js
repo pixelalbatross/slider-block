@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { initSlider } from './Slider';
+import { Slider } from './Slider';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const containers = document.querySelectorAll('.wp-block-pixelalbatross-slider');
@@ -14,14 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	 * Setup sliders.
 	 */
 	containers.forEach((container) => {
-		let blockOptions = {};
+		let options = {};
 		try {
-			blockOptions = JSON.parse(container.dataset.options);
+			options = JSON.parse(container.dataset.options);
 		} catch (e) {
 			// eslint-disable-next-line no-console
 			console.error(e);
+			return;
 		}
 
-		initSlider(container, blockOptions);
+		Slider(container, options);
 	});
 });

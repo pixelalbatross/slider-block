@@ -28,7 +28,7 @@ $options = wp_parse_args(
  *
  * @param array $options Array of slider options.
  */
-$options = apply_filters( 'pixelalbatross_slider_block_options', $options );
+$options = apply_filters( 'pixelalbatross_slider_block_slider_options', $options );
 $options = array_filter( $options );
 
 $extra_attributes = [
@@ -40,29 +40,17 @@ $extra_attributes = [
 
 <div <?php echo get_block_wrapper_attributes( $extra_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 
-	<?php
-	/**
-	 * Fires before the slides.
-	 *
-	 * @param array $options Array of slider options.
-	 */
-	do_action( 'pixelalbatross_slider_block_before_slides', $options );
-	?>
-
 	<div class="swiper-wrapper wp-block-pixelalbatross-slider__wrapper">
 		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 
-	<?php
-	/**
-	 * Fires after the slides.
-	 *
-	 * @hooked pixelalbatross_slider_block_show_navigation - 20
-	 * @hooked pixelalbatross_slider_block_show_pagination - 30
-	 *
-	 * @param array $options Array of slider options.
-	 */
-	do_action( 'pixelalbatross_slider_block_after_slides', $options );
-	?>
+	<?php if ( ! empty( $attributes['navigation'] ) ) : ?>
+		<div class="swiper-button-next wp-block-pixelalbatross-slider__button-next"></div>
+		<div class="swiper-button-prev wp-block-pixelalbatross-slider__button-prev"></div>
+	<?php endif; ?>
+
+	<?php if ( ! empty( $attributes['navigation'] ) ) : ?>
+		<div class="swiper-pagination wp-block-pixelalbatross-slider__pagination"></div>
+	<?php endif; ?>
 
 </div>

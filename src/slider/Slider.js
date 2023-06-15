@@ -40,18 +40,18 @@ const parseQuantityAndUnitFromRawValue = (rawValue) => {
 	return [quantityToReturn, unitToReturn];
 };
 
-export function initSlider(container, settings = {}) {
+export function Slider(container, options = {}) {
 	const totalSlides = container.querySelectorAll('.wp-block-pixelalbatross-slide').length;
 
-	const options = {
+	const parameters = {
 		modules: [A11y, Keyboard, HashNavigation],
 		direction: 'horizontal',
-		speed: settings?.speed || 300,
-		loop: settings?.loop || false,
-		rewind: settings?.rewind || false,
-		autoHeight: settings?.autoHeight || false,
-		slidesPerView: settings?.perView || 1,
-		centeredSlides: settings?.centeredSlides || false,
+		speed: options?.speed || 300,
+		loop: options?.loop || false,
+		rewind: options?.rewind || false,
+		autoHeight: options?.autoHeight || false,
+		slidesPerView: options?.perView || 1,
+		centeredSlides: options?.centeredSlides || false,
 		grabCursor: true,
 		autoplay: false,
 		navigation: false,
@@ -62,69 +62,69 @@ export function initSlider(container, settings = {}) {
 		a11y: {
 			containerRoleDescriptionMessage: 'carousel',
 			itemRoleDescriptionMessage: 'slide',
-			containerMessage: settings?.ariaLabel || null,
-			firstSlideMessage: settings?.i18n?.first || 'This is the first slide',
-			lastSlideMessage: settings?.i18n?.last || 'This is the last slide',
-			nextSlideMessage: settings?.i18n?.next || 'Next slide',
-			paginationBulletMessage: settings?.i18n?.slideX || 'Go to slide {{index}}',
-			prevSlideMessage: settings?.i18n?.prev || 'Previous slide',
-			slideLabelMessage: settings?.i18n?.slideLabel || '{{index}} / {{slidesLength}}',
+			containerMessage: options?.ariaLabel || null,
+			firstSlideMessage: options?.i18n?.first || 'This is the first slide',
+			lastSlideMessage: options?.i18n?.last || 'This is the last slide',
+			nextSlideMessage: options?.i18n?.next || 'Next slide',
+			paginationBulletMessage: options?.i18n?.slideX || 'Go to slide {{index}}',
+			prevSlideMessage: options?.i18n?.prev || 'Previous slide',
+			slideLabelMessage: options?.i18n?.slideLabel || '{{index}} / {{slidesLength}}',
 		},
 	};
 
-	if (settings?.width) {
-		const [parsedQuantity] = parseQuantityAndUnitFromRawValue(settings?.width);
-		options.width = parsedQuantity;
+	if (options?.width) {
+		const [parsedQuantity] = parseQuantityAndUnitFromRawValue(options?.width);
+		parameters.width = parsedQuantity;
 	}
 
-	if (settings?.height) {
-		const [parsedQuantity] = parseQuantityAndUnitFromRawValue(settings?.height);
-		options.height = parsedQuantity;
+	if (options?.height) {
+		const [parsedQuantity] = parseQuantityAndUnitFromRawValue(options?.height);
+		parameters.height = parsedQuantity;
 	}
 
-	if (settings?.spaceBetween) {
-		const [parsedQuantity] = parseQuantityAndUnitFromRawValue(settings?.spaceBetween);
-		options.spaceBetween = parsedQuantity;
+	if (options?.spaceBetween) {
+		const [parsedQuantity] = parseQuantityAndUnitFromRawValue(options?.spaceBetween);
+		parameters.spaceBetween = parsedQuantity;
 	}
 
 	// Autoplay parameters.
-	if (settings?.autoplay) {
-		options.modules.push(Autoplay);
-		options.autoplay = {
-			delay: settings?.autoplayInterval || 3000,
-			pauseOnMouseEnter: settings?.autoplayPauseOnHover || false,
+	if (options?.autoplay) {
+		parameters.modules.push(Autoplay);
+		parameters.autoplay = {
+			delay: options?.autoplayInterval || 3000,
+			pauseOnMouseEnter: options?.autoplayPauseOnHover || false,
 		};
 	}
 
 	// Navigation parameters.
-	if (settings?.navigation) {
-		options.modules.push(Navigation);
-		options.navigation = {
+	if (options?.navigation) {
+		parameters.modules.push(Navigation);
+		parameters.navigation = {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
 		};
 	}
 
 	// Pagination parameters.
-	if (settings?.pagination) {
-		options.modules.push(Pagination);
-		options.pagination = {
+	if (options?.pagination) {
+		parameters.modules.push(Pagination);
+		parameters.pagination = {
 			el: '.swiper-pagination',
-			type: settings?.paginationType || 'bullets',
+			type: options?.paginationType || 'bullets',
 			dynamicBullets: totalSlides > 5,
 			clickable: false,
 		};
 
-		if ('bullets' === options.pagination.type) {
-			options.pagination.clickable = true;
+		if ('bullets' === parameters.pagination.type) {
+			parameters.pagination.clickable = true;
 		}
 	}
 
 	// Free Mode parameters.
-	if (settings?.freeMode) {
-		options.modules.push(FreeMode);
-		options.freeMode = true;
+	if (options?.freeMode) {
+		parameters.modules.push(FreeMode);
+		parameters.freeMode = true;
 	}
 
-	return new Swiper(container, options);
+	return new Swiper(container, parameters);
 }
