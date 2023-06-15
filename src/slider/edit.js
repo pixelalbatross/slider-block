@@ -23,9 +23,37 @@ import {
 	__experimentalNumberControl as NumberControl,
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
+import { memo } from '@wordpress/element';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { createBlock } from '@wordpress/blocks';
 import { applyFilters } from '@wordpress/hooks';
+
+
+/**
+ * Slider controls.
+ */
+const SliderControls = memo(({ clientId }) => {
+	const { insertBlock, selectBlock } = useDispatch(blockEditorStore);
+	const innerBlocks = useSelect(
+		(select) => select(blockEditorStore).getBlock(clientId).innerBlocks,
+	);
+
+	const addSlide = () => {
+		const block = createBlock('pixelalbatross/slide');
+		insertBlock(block, innerBlocks.length, clientId, false);
+		selectBlock(block.clientId);
+	};
+
+	return (
+		<BlockControls>
+			<ToolbarGroup>
+				<ToolbarButton icon="plus" onClick={addSlide}>
+					{__('Add slide', 'slider-block')}
+				</ToolbarButton>
+			</ToolbarGroup>
+		</BlockControls>
+	);
+});
 
 // eslint-disable-next-line jsdoc/require-param
 /**
@@ -73,17 +101,6 @@ export default function Edit({ attributes, setAttributes }) {
 		},
 	);
 
-	const { insertBlock, selectBlock } = useDispatch(blockEditorStore);
-	const innerBlocks = useSelect(
-		(select) => select(blockEditorStore).getBlock(clientId).innerBlocks,
-	);
-
-	const addSlide = () => {
-		const block = createBlock('pixelalbatross/slide');
-		insertBlock(block, innerBlocks.length, clientId, false);
-		selectBlock(block.clientId);
-	};
-
 	const enableAutoHeight = applyFilters('pixelalbatross.sliderBlock.enableAutoHeight', false);
 	const minSpeed = applyFilters('pixelalbatross.sliderBlock.minSpeed', 100);
 	const maxSpeed = applyFilters('pixelalbatross.sliderBlock.maxSpeed', 2000);
@@ -107,13 +124,7 @@ export default function Edit({ attributes, setAttributes }) {
 				)}
 			</div>
 
-			<BlockControls>
-				<ToolbarGroup>
-					<ToolbarButton icon="plus" onClick={addSlide}>
-						{__('Add slide', 'slider-block')}
-					</ToolbarButton>
-				</ToolbarGroup>
-			</BlockControls>
+			<SliderControls clientId={clientId} />
 
 			<InspectorControls>
 				<PanelBody title={__('Settings', 'slider-block')}>
