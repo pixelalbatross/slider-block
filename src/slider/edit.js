@@ -51,7 +51,7 @@ export default function Edit({ attributes, setAttributes }) {
 		pagination,
 		paginationType,
 		freeMode,
-		centeredSlides,
+		centerSlides,
 		width,
 		height,
 		spaceBetween,
@@ -162,6 +162,13 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
+							label={__('Pagination', 'slider-block')}
+							checked={pagination}
+							onChange={(value) => setAttributes({ pagination: value })}
+						/>
+					</PanelRow>
+					<PanelRow>
+						<ToggleControl
 							label={__('Hash Navigation', 'slider-block')}
 							help={__(
 								'When enabled, you can load a page with a specific slide open. Each slide requires a "URL Hash", which can be set on each slide block.',
@@ -169,13 +176,6 @@ export default function Edit({ attributes, setAttributes }) {
 							)}
 							checked={hashNavigation}
 							onChange={(value) => setAttributes({ hashNavigation: value })}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							label={__('Pagination', 'slider-block')}
-							checked={pagination}
-							onChange={(value) => setAttributes({ pagination: value })}
 						/>
 					</PanelRow>
 					<PanelRow>
@@ -257,8 +257,9 @@ export default function Edit({ attributes, setAttributes }) {
 								'When enabled, the active slide will be centered.',
 								'slider-block',
 							)}
-							checked={centeredSlides}
-							onChange={(value) => setAttributes({ centeredSlides: value })}
+							checked={centerSlides}
+							onChange={(value) => setAttributes({ centerSlides: value })}
+							disabled={perView < 1}
 						/>
 					</PanelRow>
 				</PanelBody>

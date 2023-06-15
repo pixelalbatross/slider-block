@@ -65,7 +65,7 @@
       "type": "boolean",
       "default": false
     },
-    "centeredSlides": {
+    "centerSlides": {
       "type": "boolean",
       "default": false
     },

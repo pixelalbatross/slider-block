@@ -20,7 +20,7 @@ import Swiper, {
  * @param {string} rawValue The raw value as a string (may or may not contain the unit).
  * @return {Array} The extracted quantity and unit.
  */
-const parseQuantityAndUnitFromRawValue = (rawValue) => {
+export function parseQuantityAndUnitFromRawValue(rawValue) {
 	const allowedUnits = ['px', '%', 'em', 'rem', 'vw', 'vh'];
 
 	let trimmedValue;
@@ -38,21 +38,22 @@ const parseQuantityAndUnitFromRawValue = (rawValue) => {
 	const unitToReturn = match?.value;
 
 	return [quantityToReturn, unitToReturn];
-};
+}
 
-export function Slider(container, options = {}) {
-	const totalSlides = container.querySelectorAll('.wp-block-pixelalbatross-slide').length;
-
+export function initSlider(container, options = {}) {
 	const parameters = {
 		modules: [A11y, Keyboard],
 		direction: 'horizontal',
-		speed: options?.speed || 300,
-		loop: options?.loop || false,
-		rewind: options?.rewind || false,
-		autoHeight: options?.autoHeight || false,
-		slidesPerView: options?.perView || 1,
-		centeredSlides: options?.centeredSlides || false,
-		grabCursor: true,
+		speed: options?.speed ?? 300,
+		loop: options?.loop ?? false,
+		rewind: options?.rewind ?? false,
+		autoHeight: options?.autoHeight ?? false,
+		slidesPerView: options?.perView ?? 1,
+		centeredSlides: options?.centerSlides ?? false,
+		simulateTouch: options?.drag ?? true,
+		grabCursor: options?.drag ?? true,
+		focusableElements:
+			options?.focusableSelectors ?? 'input, select, option, textarea, button, video, label',
 		autoplay: false,
 		navigation: false,
 		pagination: false,
@@ -61,13 +62,13 @@ export function Slider(container, options = {}) {
 		a11y: {
 			containerRoleDescriptionMessage: 'carousel',
 			itemRoleDescriptionMessage: 'slide',
-			containerMessage: options?.ariaLabel || null,
-			firstSlideMessage: options?.i18n?.first || 'This is the first slide',
-			lastSlideMessage: options?.i18n?.last || 'This is the last slide',
-			nextSlideMessage: options?.i18n?.next || 'Next slide',
-			paginationBulletMessage: options?.i18n?.slideX || 'Go to slide {{index}}',
-			prevSlideMessage: options?.i18n?.prev || 'Previous slide',
-			slideLabelMessage: options?.i18n?.slideLabel || '{{index}} / {{slidesLength}}',
+			containerMessage: options?.ariaLabel ?? null,
+			firstSlideMessage: options?.i18n?.first ?? 'This is the first slide',
+			lastSlideMessage: options?.i18n?.last ?? 'This is the last slide',
+			nextSlideMessage: options?.i18n?.next ?? 'Next slide',
+			paginationBulletMessage: options?.i18n?.slideX ?? 'Go to slide {{index}}',
+			prevSlideMessage: options?.i18n?.prev ?? 'Previous slide',
+			slideLabelMessage: options?.i18n?.slideLabel ?? '{{index}} / {{slidesLength}}',
 		},
 	};
 
@@ -96,8 +97,8 @@ export function Slider(container, options = {}) {
 	if (options?.autoplay) {
 		parameters.modules.push(Autoplay);
 		parameters.autoplay = {
-			delay: options?.autoplayInterval || 3000,
-			pauseOnMouseEnter: options?.autoplayPauseOnHover || false,
+			delay: options?.autoplayInterval ?? 3000,
+			pauseOnMouseEnter: options?.autoplayPauseOnHover ?? false,
 		};
 	}
 
@@ -115,12 +116,15 @@ export function Slider(container, options = {}) {
 		parameters.modules.push(Pagination);
 		parameters.pagination = {
 			el: '.swiper-pagination',
-			type: options?.paginationType || 'bullets',
-			dynamicBullets: totalSlides > 5,
-			clickable: false,
+			type: options?.paginationType ?? 'bullets',
+			dynamicBullets: options.totalSlides > 5,
+			clickable: options?.pagination?.clickable ?? false,
 		};
 
-		if ('bullets' === parameters.pagination.type) {
+		if (
+			'bullets' === parameters.pagination.type &&
+			undefined === options?.pagination?.clickable
+		) {
 			parameters.pagination.clickable = true;
 		}
 	}
@@ -130,6 +134,8 @@ export function Slider(container, options = {}) {
 		parameters.modules.push(FreeMode);
 		parameters.freeMode = true;
 	}
+
+	console.log(parameters);
 
 	return new Swiper(container, parameters);
 }
