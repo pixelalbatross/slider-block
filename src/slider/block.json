@@ -49,6 +49,10 @@
       "type": "boolean",
       "default": false
     },
+    "hashNavigation": {
+      "type": "boolean",
+      "default": false
+    },
     "pagination": {
       "type": "boolean",
       "default": false
@@ -81,6 +85,9 @@
       "type": "string",
       "default": null
     }
+  },
+  "providesContext": {
+    "pixelalbatross/slider/hashNavigation": "hashNavigation"
   },
   "supports": {
     "html": false,

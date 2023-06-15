@@ -18,6 +18,9 @@
       "default": null
     }
   },
+  "usesContext": [
+    "pixelalbatross/slider/hashNavigation"
+  ],
   "supports": {
     "html": false,
     "reusable": false,

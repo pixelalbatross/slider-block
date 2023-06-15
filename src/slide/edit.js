@@ -22,7 +22,7 @@ const HASH_REGEX = /[\s#]/g;
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, context }) {
 	const { hash } = attributes;
 
 	/**
@@ -69,24 +69,26 @@ export default function Edit({ attributes, setAttributes }) {
 			</div>
 
 			<InspectorControls>
-				<PanelBody title={__('Settings', 'slider-block')}>
-					<PanelRow>
-						<TextControl
-							label={__('Hash', 'slider-block')}
-							help={__(
-								'A URL hash is used to link to a specific slide that allows you to load the page with that slide open.',
-								'slider-block',
-							)}
-							value={hash}
-							onChange={(value) => {
-								value = value.replace(HASH_REGEX, '-');
-								setAttributes({
-									hash: value,
-								});
-							}}
-						/>
-					</PanelRow>
-				</PanelBody>
+				{context['pixelalbatross/slider/hashNavigation'] && (
+					<PanelBody title={__('Settings', 'slider-block')}>
+						<PanelRow>
+							<TextControl
+								label={__('URL Hash', 'slider-block')}
+								help={__(
+									'A URL hash is used to link to a specific slide that allows you to load the page with that slide open.',
+									'slider-block',
+								)}
+								value={hash}
+								onChange={(value) => {
+									value = value.replace(HASH_REGEX, '-');
+									setAttributes({
+										hash: value,
+									});
+								}}
+							/>
+						</PanelRow>
+					</PanelBody>
+				)}
 			</InspectorControls>
 		</>
 	);

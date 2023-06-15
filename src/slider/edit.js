@@ -47,6 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
 		autoplayInterval,
 		autoplayPauseOnHover,
 		navigation,
+		hashNavigation,
 		pagination,
 		paginationType,
 		freeMode,
@@ -157,6 +158,17 @@ export default function Edit({ attributes, setAttributes }) {
 							label={__('Navigation', 'slider-block')}
 							checked={navigation}
 							onChange={(value) => setAttributes({ navigation: value })}
+						/>
+					</PanelRow>
+					<PanelRow>
+						<ToggleControl
+							label={__('Hash Navigation', 'slider-block')}
+							help={__(
+								'When enabled, you can load a page with a specific slide open. Each slide requires a "URL Hash", which can be set on each slide block.',
+								'slider-block',
+							)}
+							checked={hashNavigation}
+							onChange={(value) => setAttributes({ hashNavigation: value })}
 						/>
 					</PanelRow>
 					<PanelRow>

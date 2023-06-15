@@ -44,7 +44,7 @@ export function Slider(container, options = {}) {
 	const totalSlides = container.querySelectorAll('.wp-block-pixelalbatross-slide').length;
 
 	const parameters = {
-		modules: [A11y, Keyboard, HashNavigation],
+		modules: [A11y, Keyboard],
 		direction: 'horizontal',
 		speed: options?.speed || 300,
 		loop: options?.loop || false,
@@ -58,7 +58,6 @@ export function Slider(container, options = {}) {
 		pagination: false,
 		freeMode: false,
 		keyboard: true,
-		hashNavigation: true,
 		a11y: {
 			containerRoleDescriptionMessage: 'carousel',
 			itemRoleDescriptionMessage: 'slide',
@@ -87,7 +86,13 @@ export function Slider(container, options = {}) {
 		parameters.spaceBetween = parsedQuantity;
 	}
 
-	// Autoplay parameters.
+	// Hash Navigation module.
+	if (options?.hashNavigation) {
+		parameters.modules.push(HashNavigation);
+		parameters.hashNavigation = true;
+	}
+
+	// Autoplay module.
 	if (options?.autoplay) {
 		parameters.modules.push(Autoplay);
 		parameters.autoplay = {
@@ -96,7 +101,7 @@ export function Slider(container, options = {}) {
 		};
 	}
 
-	// Navigation parameters.
+	// Navigation module.
 	if (options?.navigation) {
 		parameters.modules.push(Navigation);
 		parameters.navigation = {
@@ -105,7 +110,7 @@ export function Slider(container, options = {}) {
 		};
 	}
 
-	// Pagination parameters.
+	// Pagination module.
 	if (options?.pagination) {
 		parameters.modules.push(Pagination);
 		parameters.pagination = {
@@ -120,7 +125,7 @@ export function Slider(container, options = {}) {
 		}
 	}
 
-	// Free Mode parameters.
+	// Free Mode module.
 	if (options?.freeMode) {
 		parameters.modules.push(FreeMode);
 		parameters.freeMode = true;
