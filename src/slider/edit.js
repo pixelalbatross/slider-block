@@ -102,6 +102,7 @@ const Slider = memo(({ clientId, attributes }) => {
 		const options = {
 			...attributes,
 			...{
+				autoplay: false,
 				drag: false,
 				focusableSelectors,
 				hashNavigation: false,
@@ -111,18 +112,49 @@ const Slider = memo(({ clientId, attributes }) => {
 			},
 		};
 
+		// Initialize slider.
 		let slider = initSlider(element, options);
-		let slidesOrder = select(blockEditorStore).getBlockOrder(clientId);
 
+		// Store the current slide order to detect changes, such as adding, removing, or reordering slides.
+		let slideOrder = select(blockEditorStore).getBlockOrder(clientId);
+
+		// Subscribe slider update events like adding, removing, or reordering slides.
 		const unsubscribeSliderUpdateListener = subscribe(() => {
 			const currentSlidesOrder = select(blockEditorStore).getBlockOrder(clientId);
 
-			if (currentSlidesOrder.toString() !== slidesOrder.toString()) {
-				slidesOrder = currentSlidesOrder;
+			// Check if the slider has been changed.
+			if (currentSlidesOrder.toString() !== slideOrder.toString()) {
+				const selectedBlock = select(blockEditorStore).getSelectedBlock();
+				const slideAdded = currentSlidesOrder.length > slideOrder.length;
+				const slideRemoved = currentSlidesOrder.length < slideOrder.length;
+				const slideMoved = currentSlidesOrder.length === slideOrder.length;
+				const activeIndex = slider.activeIndex;
+
+				// Store the current slide order before destroying the slider instance.
+				slideOrder = currentSlidesOrder;
 				slider.destroy();
 
 				window.requestAnimationFrame(() => {
+					// Initialize slider.
 					slider = initSlider(element, options);
+
+					// Determine where the slider should go.
+					let slideToIndex = activeIndex;
+					if (slideAdded) {
+						slideToIndex = slideOrder.length;
+					} else if (slideRemoved) {
+						slideToIndex = activeIndex - 1;
+					} else if (slideMoved) {
+						slideToIndex = slideOrder.findIndex(
+							(clientId) => clientId === selectedBlock.clientId,
+						);
+					}
+
+					if (slideToIndex < 0) {
+						slideToIndex = 0;
+					}
+
+					slider.slideTo(slideToIndex, 0);
 				});
 			}
 		});
