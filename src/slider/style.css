@@ -3,3 +3,23 @@
 @import url("swiper/modules/free-mode/free-mode.min.css");
 @import url("swiper/modules/navigation/navigation.min.css");
 @import url("swiper/modules/pagination/pagination.min.css");
+
+.editor-styles-wrapper [data-type="pixelalbatross/slider"] {
+
+	& .wp-block-pixelalbatross-slider__pagination {
+		pointer-events: none;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		* {
+			pointer-events: none;
+		}
+	}
+}

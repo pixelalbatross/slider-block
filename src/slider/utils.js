@@ -40,6 +40,13 @@ export function parseQuantityAndUnitFromRawValue(rawValue) {
 	return [quantityToReturn, unitToReturn];
 }
 
+/**
+ * Initialize the slider.
+ *
+ * @param {Element} container HTMLElement.
+ * @param {Object}  options   Slider parameters.
+ * @return {Object} Returns initialized slider instance.
+ */
 export function initSlider(container, options = {}) {
 	const parameters = {
 		modules: [A11y, Keyboard],
@@ -87,12 +94,6 @@ export function initSlider(container, options = {}) {
 		parameters.spaceBetween = parsedQuantity;
 	}
 
-	// Hash Navigation module.
-	if (options?.hashNavigation) {
-		parameters.modules.push(HashNavigation);
-		parameters.hashNavigation = true;
-	}
-
 	// Autoplay module.
 	if (options?.autoplay) {
 		parameters.modules.push(Autoplay);
@@ -135,7 +136,11 @@ export function initSlider(container, options = {}) {
 		parameters.freeMode = true;
 	}
 
-	console.log(parameters);
+	// Hash Navigation module.
+	if (options?.hashNavigation) {
+		parameters.modules.push(HashNavigation);
+		parameters.hashNavigation = true;
+	}
 
 	return new Swiper(container, parameters);
 }

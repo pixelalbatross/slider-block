@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable @wordpress/no-unsafe-wp-apis */
 /**
  * WordPress dependencies
@@ -24,15 +25,34 @@ import {
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 import { memo } from '@wordpress/element';
-import { useSelect, useDispatch } from '@wordpress/data';
+import { useRefEffect } from '@wordpress/compose';
+import { useSelect, useDispatch, select, subscribe } from '@wordpress/data';
 import { createBlock } from '@wordpress/blocks';
 import { applyFilters } from '@wordpress/hooks';
 
+/**
+ * Internal dependencies
+ */
+import { initSlider } from './utils';
+
+const focusableSelectors = [
+	'a[href]',
+	'area[href]',
+	'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
+	'select:not([disabled]):not([aria-hidden])',
+	'textarea:not([disabled]):not([aria-hidden])',
+	'button:not([disabled]):not([aria-hidden])',
+	'iframe',
+	'object',
+	'embed',
+	'[contenteditable]',
+	'[tabindex]:not([tabindex^="-"])',
+];
 
 /**
- * Slider controls.
+ * Slider toolbar.
  */
-const SliderControls = memo(({ clientId }) => {
+const SliderToolbar = memo(({ clientId }) => {
 	const { insertBlock, selectBlock } = useDispatch(blockEditorStore);
 	const innerBlocks = useSelect(
 		(select) => select(blockEditorStore).getBlock(clientId).innerBlocks,
@@ -45,13 +65,93 @@ const SliderControls = memo(({ clientId }) => {
 	};
 
 	return (
-		<BlockControls>
-			<ToolbarGroup>
-				<ToolbarButton icon="plus" onClick={addSlide}>
-					{__('Add slide', 'slider-block')}
-				</ToolbarButton>
-			</ToolbarGroup>
-		</BlockControls>
+		<ToolbarGroup>
+			<ToolbarButton icon="plus" onClick={addSlide}>
+				{__('Add slide', 'slider-block')}
+			</ToolbarButton>
+		</ToolbarGroup>
+	);
+});
+
+/**
+ * Slides component.
+ */
+const Slides = memo(() => {
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'swiper-wrapper wp-block-pixelalbatross-slider__wrapper',
+		},
+		{
+			allowedBlocks: ['pixelalbatross/slide'],
+			template: [['pixelalbatross/slide'], ['pixelalbatross/slide']],
+			renderAppender: false,
+			orientation: 'horizontal',
+		},
+	);
+
+	return <div {...innerBlocksProps} />;
+});
+
+/**
+ * Slider component.
+ */
+const Slider = memo(({ clientId, attributes }) => {
+	const { navigation, pagination } = attributes;
+
+	const sliderRef = useRefEffect((element) => {
+		const options = {
+			...attributes,
+			...{
+				drag: false,
+				focusableSelectors,
+				hashNavigation: false,
+				pagination: {
+					clickable: false,
+				},
+			},
+		};
+
+		let slider = initSlider(element, options);
+		let slidesOrder = select(blockEditorStore).getBlockOrder(clientId);
+
+		const unsubscribeSliderUpdateListener = subscribe(() => {
+			const currentSlidesOrder = select(blockEditorStore).getBlockOrder(clientId);
+
+			if (currentSlidesOrder.toString() !== slidesOrder.toString()) {
+				slidesOrder = currentSlidesOrder;
+				slider.destroy();
+
+				window.requestAnimationFrame(() => {
+					slider = initSlider(element, options);
+				});
+			}
+		});
+
+		return () => {
+			unsubscribeSliderUpdateListener();
+			slider.destroy();
+		};
+	});
+
+	return (
+		<>
+			<BlockControls>
+				<SliderToolbar clientId={clientId} />
+			</BlockControls>
+
+			<div className="swiper" ref={sliderRef}>
+				<Slides />
+				{navigation && (
+					<>
+						<div className="swiper-button-next wp-block-pixelalbatross-slider__button-next"></div>
+						<div className="swiper-button-prev wp-block-pixelalbatross-slider__button-prev"></div>
+					</>
+				)}
+				{pagination && (
+					<div className="swiper-pagination wp-block-pixelalbatross-slider__pagination"></div>
+				)}
+			</div>
+		</>
 	);
 });
 
@@ -86,20 +186,7 @@ export default function Edit({ attributes, setAttributes }) {
 		ariaLabel,
 	} = attributes;
 	const { clientId } = useBlockEditContext();
-	const blockProps = useBlockProps({
-		className: 'swiper',
-	});
-	const innerBlocksProps = useInnerBlocksProps(
-		{
-			className: 'swiper-wrapper wp-block-pixelalbatross-slider__wrapper',
-		},
-		{
-			allowedBlocks: ['pixelalbatross/slide'],
-			template: [['pixelalbatross/slide'], ['pixelalbatross/slide']],
-			renderAppender: false,
-			orientation: 'horizontal',
-		},
-	);
+	const blockProps = useBlockProps();
 
 	const enableAutoHeight = applyFilters('pixelalbatross.sliderBlock.enableAutoHeight', false);
 	const minSpeed = applyFilters('pixelalbatross.sliderBlock.minSpeed', 100);
@@ -110,21 +197,8 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<div {...blockProps}>
-				<div {...innerBlocksProps} />
-
-				{navigation && (
-					<>
-						<div className="swiper-button-next wp-block-pixelalbatross-slider__button-next"></div>
-						<div className="swiper-button-prev wp-block-pixelalbatross-slider__button-prev"></div>
-					</>
-				)}
-
-				{pagination && (
-					<div className="swiper-pagination wp-block-pixelalbatross-slider__pagination"></div>
-				)}
+				<Slider clientId={clientId} attributes={attributes} />
 			</div>
-
-			<SliderControls clientId={clientId} />
 
 			<InspectorControls>
 				<PanelBody title={__('Settings', 'slider-block')}>
