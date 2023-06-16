@@ -1,0 +1,159 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "pixelalbatross/slider",
+  "title": "Slider",
+  "category": "design",
+  "icon": "slides",
+  "description": "Display a slider.",
+  "keywords": [
+    "slider",
+    "carousel"
+  ],
+  "version": "0.1.0",
+  "textdomain": "slider-block",
+  "attributes": {
+    "speed": {
+      "type": "number",
+      "default": 300
+    },
+    "loop": {
+      "type": "boolean",
+      "default": false
+    },
+    "rewind": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoHeight": {
+      "type": "boolean",
+      "default": false
+    },
+    "perView": {
+      "type": "number",
+      "default": 1
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoplayInterval": {
+      "type": "number",
+      "default": 3000
+    },
+    "autoplayPauseOnHover": {
+      "type": "boolean",
+      "default": false
+    },
+    "navigation": {
+      "type": "boolean",
+      "default": false
+    },
+    "hashNavigation": {
+      "type": "boolean",
+      "default": false
+    },
+    "pagination": {
+      "type": "boolean",
+      "default": false
+    },
+    "paginationType": {
+      "type": "string",
+      "default": "bullets"
+    },
+    "freeMode": {
+      "type": "boolean",
+      "default": false
+    },
+    "centerSlides": {
+      "type": "boolean",
+      "default": false
+    },
+    "width": {
+      "type": "string",
+      "default": ""
+    },
+    "height": {
+      "type": "string",
+      "default": ""
+    },
+    "spaceBetween": {
+      "type": "string",
+      "default": ""
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": null
+    }
+  },
+  "providesContext": {
+    "pixelalbatross/slider/hashNavigation": "hashNavigation"
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "className": true,
+    "color": {
+      "gradients": true,
+      "link": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "blockGap": true
+    }
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "pixelalbatross/slide",
+        "innerBlocks": [
+          {
+            "name": "core/heading",
+            "attributes": {
+              "content": "Qui sunt placeat vel quidem omnis"
+            }
+          },
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet. Et atque quidem in deleniti tenetur non cumque consequatur. Et totam repellat est maxime totam ut minima explicabo rem officia culpa eos galisum voluptatem non laboriosam minima et earum consequuntur."
+            }
+          }
+        ]
+      },
+      {
+        "name": "pixelalbatross/slide",
+        "innerBlocks": [
+          {
+            "name": "core/heading",
+            "attributes": {
+              "content": "Sit asperiores similique in laudantium molestiae"
+            }
+          },
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Qui eaque dolorum cum accusantium aperiam et sint voluptas. Est doloribus sint sit ducimus porro hic doloremque odit sit dolorum veritatis."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
