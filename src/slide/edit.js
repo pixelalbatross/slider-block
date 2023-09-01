@@ -40,6 +40,7 @@ export default function Edit({ attributes, setAttributes, context }) {
 		'core/list',
 		'core/media-text',
 		'core/paragraph',
+		'core/quote',
 		'core/separator',
 		'core/table',
 	]);
