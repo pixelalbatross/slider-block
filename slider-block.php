@@ -32,8 +32,18 @@ function pixelalbatross_slider_block_init() {
 	];
 
 	foreach ( $blocks as $block ) {
-		$folder = sprintf( '%s/build/%s', __DIR__, $block );
-		register_block_type( $folder );
+		$folder     = sprintf( '%s/build/%s', __DIR__, $block );
+		$block_type = register_block_type( $folder );
+
+		if ( ! empty( $block_type->editor_script_handles ) ) {
+			foreach ( $block_type->editor_script_handles as $handle ) {
+				wp_set_script_translations(
+					$handle,
+					'slider-block',
+					plugin_dir_path( __FILE__ ) . 'languages'
+				);
+			}
+		}
 	}
 }
 add_action( 'init', 'pixelalbatross_slider_block_init' );

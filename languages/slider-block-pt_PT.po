@@ -1,0 +1,241 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Slider Block 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/slider-block\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-09-07T01:13:01+00:00\n"
+"PO-Revision-Date: 2023-09-07 02:28+0100\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Domain: slider-block\n"
+
+#. Plugin Name of the plugin
+msgid "Slider Block"
+msgstr "Bloco de Slider"
+
+#. Plugin URI of the plugin
+msgid "https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=plugin-uri"
+msgstr ""
+
+#. Description of the plugin
+msgid "Display a slider."
+msgstr "Exibe um slider."
+
+#. Author of the plugin
+msgid "Pixel Albatross"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=author-uri"
+msgstr ""
+
+#: build/slider/render.php:16
+msgid "Previous slide"
+msgstr "Slide anterior"
+
+#: build/slider/render.php:17
+msgid "Next slide"
+msgstr "Slide seguinte"
+
+#: build/slider/render.php:18
+msgid "This is the first slide"
+msgstr "Este é o primeiro slide"
+
+#: build/slider/render.php:19
+msgid "This is the last slide"
+msgstr "Este é o último slide"
+
+#: build/slider/render.php:20
+msgid "Go to slide {{index}}"
+msgstr "Ir para o slide {{index}}"
+
+#: build/slider/render.php:21
+msgid "{{index}} / {{slidesLength}}"
+msgstr "{{index}} / {{slidesLength}}"
+
+#: build/slide/index.js:1
+msgid "Heading"
+msgstr "Título"
+
+#: build/slide/index.js:1
+#: build/slider/index.js:1
+msgid "Settings"
+msgstr "Configurações"
+
+#: build/slide/index.js:1
+msgid "URL Hash"
+msgstr "Hash de URL"
+
+#: build/slide/index.js:1
+msgid "A URL hash is used to link to a specific slide that allows you to load the page with that slide open."
+msgstr "Um hash de URL é usado para ligar a um slide específico que permite carregar a página com esse slide aberto."
+
+#: build/slider/index.js:1
+msgid "Add slide"
+msgstr "Adicionar slide"
+
+#: build/slider/index.js:1
+msgid "Loop"
+msgstr "Ciclo"
+
+#: build/slider/index.js:1
+msgid "When enabled, the slider will behave as a carousel."
+msgstr "Quando activado, o slider comportar-se-á como um carrossel."
+
+#: build/slider/index.js:1
+msgid "Rewind"
+msgstr "Rebobinar"
+
+#: build/slider/index.js:1
+msgid "When enabled, clicking the \"next\" navigation button on the last slide will take you back to the first slide. When you click the \"previous\" navigation button on the first slide, it will take you to the last slide."
+msgstr "Quando activado, clicar no botão de navegação “seguinte” no último slide leva-o de volta ao primeiro slide. Se clicar no botão de navegação “anterior” no primeiro slide, regressará ao último slide."
+
+#: build/slider/index.js:1
+msgid "Autoplay"
+msgstr "Reprodução automática"
+
+#: build/slider/index.js:1
+msgid "Free Mode"
+msgstr "Modo livre"
+
+#: build/slider/index.js:1
+msgid "Navigation"
+msgstr "Navegação"
+
+#: build/slider/index.js:1
+msgid "Pagination"
+msgstr "Paginação"
+
+#: build/slider/index.js:1
+msgid "Hash Navigation"
+msgstr "Navegação por Hash"
+
+#: build/slider/index.js:1
+msgid "When enabled, you can load a page with a specific slide open. Each slide requires a \"URL Hash\", which can be set on each slide block."
+msgstr "Quando activado, pode carregar uma página com um slide específico aberto. Cada slide requer um \"Hash de URL\", que pode ser definido em cada bloco de slide."
+
+#: build/slider/index.js:1
+msgid "Speed"
+msgstr "Velocidade"
+
+#: build/slider/index.js:1
+msgid "Duration of transition between slides (in milliseconds)."
+msgstr "Duração da transição entre slides (em milissegundos)."
+
+#: build/slider/index.js:1
+msgid "Width"
+msgstr "Largura"
+
+#: build/slider/index.js:1
+msgid "The slider will not be responsive if this parameter is set."
+msgstr "O slider não será responsivo se este parâmetro estiver definido."
+
+#: build/slider/index.js:1
+msgid "Height"
+msgstr "Altura"
+
+#: build/slider/index.js:1
+msgid "Auto Height"
+msgstr "Altura automática"
+
+#: build/slider/index.js:1
+msgid "When enabled, the slider will adjust its height to match the height of the currently active slide."
+msgstr "Quando activada, o slider ajustará a sua altura para corresponder à altura do slide actualmente activo."
+
+#: build/slider/index.js:1
+msgid "Per View"
+msgstr "Por visualização"
+
+#: build/slider/index.js:1
+msgid "Number of slides per view (slides visible at the same time)."
+msgstr "Número de slides por visualização (slides visíveis ao mesmo tempo)."
+
+#: build/slider/index.js:1
+msgid "Space Between Slides"
+msgstr "Espaço entre slides"
+
+#: build/slider/index.js:1
+msgid "The distance between slides."
+msgstr "A distância entre os slides."
+
+#: build/slider/index.js:1
+msgid "Centered Slides"
+msgstr "Slides centrados"
+
+#: build/slider/index.js:1
+msgid "When enabled, the active slide will be centered."
+msgstr "Quando activado, o slide activo será centrado."
+
+#: build/slider/index.js:1
+msgid "Delay"
+msgstr "Atraso"
+
+#: build/slider/index.js:1
+msgid "Delay between transitions (in milliseconds)."
+msgstr "Atraso entre transições (em milissegundos)."
+
+#: build/slider/index.js:1
+msgid "Pause on Hover"
+msgstr "Pausa ao passar o rato"
+
+#: build/slider/index.js:1
+msgid "When enabled autoplay will be paused on pointer (mouse) enter over the slider."
+msgstr "Quando activada, a reprodução automática é interrompida quando o ponteiro (rato) passa sobre o slider."
+
+#: build/slider/index.js:1
+msgid "Type"
+msgstr "Tipo"
+
+#: build/slider/index.js:1
+msgid "Bullets"
+msgstr "Marcadores"
+
+#: build/slider/index.js:1
+msgid "Fraction"
+msgstr "Fracção"
+
+#: build/slider/index.js:1
+msgid "Progress Bar"
+msgstr "Barra de progresso"
+
+#: build/slider/index.js:1
+msgid "Accessibility"
+msgstr "Acessibilidade"
+
+#: build/slider/index.js:1
+msgid "Aria Label"
+msgstr "Aria Label"
+
+#: build/slider/index.js:1
+msgid "Sets an aria-label attribute to the root element."
+msgstr "Define um atributo aria-label para o elemento raiz."
+
+#: build/slide/block.json
+msgctxt "block title"
+msgid "Slide"
+msgstr "Slide"
+
+#: build/slide/block.json
+#: build/slider/block.json
+msgctxt "block description"
+msgid "Display a slider."
+msgstr "Exibe um slider."
+
+#: build/slider/block.json
+msgctxt "block title"
+msgid "Slider"
+msgstr "Slider"
+
+#: build/slider/block.json
+msgctxt "block keyword"
+msgid "slider"
+msgstr "slider"
+
+#: build/slider/block.json
+msgctxt "block keyword"
+msgid "carousel"
+msgstr "carrossel"
