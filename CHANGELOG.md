@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
+## [0.3.0] - 2023-09-07
+
+### Added
+
+- Translation support.
+- Portuguese translation.
+
 ## [0.2.0] - 2023-09-01
 
 ### Added
 
-- CODEOWNERS file
+- CODEOWNERS file.
 - 'Quote' block to list of allowed blocks.
 
 ### Changed

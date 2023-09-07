@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-09-07T01:13:01+00:00\n"
-"PO-Revision-Date: 2023-09-07 02:28+0100\n"
+"PO-Revision-Date: 2023-09-07 02:49+0100\n"
 "Language: pt_PT\n"
 "X-Generator: Poedit 3.3.2\n"
 "X-Domain: slider-block\n"
@@ -192,7 +192,7 @@ msgstr "Tipo"
 
 #: build/slider/index.js:1
 msgid "Bullets"
-msgstr "Marcadores"
+msgstr "Indicadores"
 
 #: build/slider/index.js:1
 msgid "Fraction"

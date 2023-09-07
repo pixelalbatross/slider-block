@@ -10,7 +10,6 @@
     "slider",
     "carousel"
   ],
-  "version": "0.1.0",
   "textdomain": "slider-block",
   "attributes": {
     "speed": {
