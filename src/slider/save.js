@@ -12,6 +12,6 @@ import { InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function Save() {
+export default function SliderSave() {
 	return <InnerBlocks.Content />;
 }

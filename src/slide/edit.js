@@ -22,7 +22,7 @@ const HASH_REGEX = /[\s#]/g;
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes, context }) {
+export default function SlideEdit({ attributes, setAttributes, context }) {
 	const { hash } = attributes;
 
 	/**

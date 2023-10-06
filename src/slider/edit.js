@@ -196,7 +196,7 @@ const Slider = memo(({ clientId, attributes }) => {
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function SliderEdit({ attributes, setAttributes }) {
 	const {
 		speed,
 		loop,
