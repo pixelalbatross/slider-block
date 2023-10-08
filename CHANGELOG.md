@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
+## [0.4.0] - 2023-10-08
+
+### Changed
+
+- Rollback apiVersion to 2.
+
 ## [0.3.0] - 2023-09-07
 
 ### Added
