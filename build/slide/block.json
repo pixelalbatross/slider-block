@@ -33,8 +33,7 @@
     },
     "spacing": {
       "padding": false,
-      "margin": false,
-      "blockGap": false
+      "margin": false
     }
   },
   "editorScript": "file:./index.js",
