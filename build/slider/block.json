@@ -96,12 +96,11 @@
     ],
     "className": true,
     "color": {
+      "background": true,
       "gradients": true,
+      "heading": true,
       "link": true,
-      "__experimentalDefaultControls": {
-        "background": true,
-        "text": true
-      }
+      "text": true
     },
     "spacing": {
       "padding": true,
