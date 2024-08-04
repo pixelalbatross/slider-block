@@ -12,8 +12,8 @@ The icons are from [Themify Icons](https://themify.me/themify-icons).
 
 ## Requirements
 
-* PHP 7.4+.
-* WordPress 6.1+.
+* PHP 7.4+
+* WordPress 6.1+
 
 ## Installation
 

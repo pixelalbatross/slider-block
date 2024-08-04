@@ -14,22 +14,27 @@ msgstr ""
 "X-Domain: slider-block\n"
 
 #. Plugin Name of the plugin
+#: slider-block.php
 msgid "Slider Block"
 msgstr "Bloco de Slider"
 
 #. Plugin URI of the plugin
+#: slider-block.php
 msgid "https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=plugin-uri"
 msgstr ""
 
 #. Description of the plugin
+#: slider-block.php
 msgid "Display a slider."
 msgstr "Exibe um slider."
 
 #. Author of the plugin
+#: slider-block.php
 msgid "Pixel Albatross"
 msgstr ""
 
 #. Author URI of the plugin
+#: slider-block.php
 msgid "https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=author-uri"
 msgstr ""
 

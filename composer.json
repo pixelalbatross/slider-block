@@ -14,11 +14,15 @@
   ],
   "autoload": {},
   "require": {
-    "php": "^7.4|^8.0",
+    "php": "^8.2",
     "composer-plugin-api": "^2.3"
   },
   "require-dev": {
-    "pixelalbatross/coding-standards": "dev-main"
+    "phpcompatibility/php-compatibility": "dev-develop as 9.99.99",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "phpstan/phpstan": "^1.11",
+    "pixelalbatross/coding-standards": "dev-main",
+    "szepeviktor/phpstan-wordpress": "^1.3"
   },
   "scripts": {
     "lint": "phpcs .",

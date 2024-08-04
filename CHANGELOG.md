@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
+## [0.5.0] - 2024-08-04
+
+### Added
+
+- WordPress Plugin Check Action (props @swissspidy).
+
 ## [0.4.0] - 2023-10-08
 
 ### Changed
