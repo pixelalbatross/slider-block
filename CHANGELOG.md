@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
-## [Unreleased]
+## [0.6.0] - 2024-12-03
+
+### Added
+
+- Update mechanism and vendor folder.
 
 ### Changed
 

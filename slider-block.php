@@ -5,7 +5,7 @@
  * Plugin URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=plugin-uri
  * Requires at least: 6.1
  * Requires PHP:      7.4
- * Version:           0.5.0
+ * Version:           0.6.0
  * Author:            Pixel Albatross
  * Author URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=author-uri
  * License:           GPL-2.0-or-later
@@ -17,12 +17,28 @@
  * @package           pixelalbatross/slider-block
  */
 
+namespace PixelAlbatross\WP\AccordionBlock;
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'PIXELALBATROSS_SLIDER_BLOCK_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'PIXALB_SLIDER_BLOCK_PATH', plugin_dir_path( __FILE__ ) );
+
+if ( file_exists( PIXALB_SLIDER_BLOCK_PATH . 'vendor/autoload.php' ) ) {
+	require_once PIXALB_SLIDER_BLOCK_PATH . 'vendor/autoload.php';
+}
+
+$updater = PucFactory::buildUpdateChecker(
+	'https://github.com/pixelalbatross/slider-block/',
+	__FILE__,
+	'slider-block'
+);
+
+$updater->setBranch( 'main' );
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -31,9 +47,9 @@ define( 'PIXELALBATROSS_SLIDER_BLOCK_PLUGIN_PATH', plugin_dir_path( __FILE__ ) )
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function pixelalbatross_slider_block_init() {
+function slider_block_init() {
 
-	$block_json_files = glob( PIXELALBATROSS_SLIDER_BLOCK_PLUGIN_PATH . 'build/*/block.json' );
+	$block_json_files = glob( PIXALB_SLIDER_BLOCK_PATH . 'build/*/block.json' );
 
 	foreach ( $block_json_files as $filename ) {
 
@@ -45,30 +61,30 @@ function pixelalbatross_slider_block_init() {
 				wp_set_script_translations(
 					$handle,
 					'slider-block',
-					PIXELALBATROSS_SLIDER_BLOCK_PLUGIN_PATH . 'languages'
+					PIXALB_SLIDER_BLOCK_PATH . 'languages'
 				);
 			}
 		}
 	}
 }
-add_action( 'init', 'pixelalbatross_slider_block_init' );
+add_action( 'init', __NAMESPACE__ . '\slider_block_init' );
 
 /**
  * Registers the block textdomain.
  *
  * @return void
  */
-function pixelalbatross_slider_block_i18n() {
-	load_plugin_textdomain( 'slider-block', false, plugin_basename( PIXELALBATROSS_SLIDER_BLOCK_PLUGIN_PATH ) . '/languages' );
+function slider_block_i18n() {
+	load_plugin_textdomain( 'slider-block', false, plugin_basename( PIXALB_SLIDER_BLOCK_PATH ) . '/languages' );
 }
-add_action( 'plugins_loaded', 'pixelalbatross_slider_block_i18n' );
+add_action( 'plugins_loaded', __NAMESPACE__ . '\slider_block_i18n' );
 
 /**
  * Handles JavaScript detection.
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  */
-function pixelalbatross_slider_block_js_detection() {
+function slider_block_js_detection() {
 	echo "<script>!function(s){s.classList.contains('js')?s.classList:s.classList.add('js')}(document.documentElement);</script>\n";
 }
-add_action( 'wp_head', 'pixelalbatross_slider_block_js_detection', 0 );
+add_action( 'wp_head', __NAMESPACE__ . '\slider_block_js_detection', 0 );
