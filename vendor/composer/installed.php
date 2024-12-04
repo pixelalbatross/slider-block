@@ -3,7 +3,7 @@
         'name' => 'pixelalbatross/slider-block',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '819170ee7bb10859fc267d6c5e1ee378889d4f02',
+        'reference' => '980ff067c716311599eff368dce65d9d07e9fbdd',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'pixelalbatross/slider-block' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '819170ee7bb10859fc267d6c5e1ee378889d4f02',
+            'reference' => '980ff067c716311599eff368dce65d9d07e9fbdd',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

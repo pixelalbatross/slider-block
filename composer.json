@@ -14,7 +14,7 @@
   ],
   "autoload": {},
   "require": {
-    "php": "^8.2",
+    "php": "^7.4|^8.0",
     "composer-plugin-api": "^2.3",
     "yahnis-elsts/plugin-update-checker": "^5.5"
   },
