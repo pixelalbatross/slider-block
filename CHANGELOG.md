@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
+## [Unreleased]
+
+### Changed
+
+- Remove global variable.
+
+### Fixed
+
+- load_plugin_textdomain.
+
 ## [0.6.1] - 2024-12-07
 
 ### Changed

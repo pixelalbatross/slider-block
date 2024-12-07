@@ -32,13 +32,11 @@ if ( file_exists( PIXALB_SLIDER_BLOCK_PATH . 'vendor/autoload.php' ) ) {
 	require_once PIXALB_SLIDER_BLOCK_PATH . 'vendor/autoload.php';
 }
 
-$updater = PucFactory::buildUpdateChecker(
+PucFactory::buildUpdateChecker(
 	'https://github.com/pixelalbatross/slider-block/',
 	__FILE__,
 	'slider-block'
-);
-
-$updater->setBranch( 'main' );
+)->setBranch( 'main' );
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -47,7 +45,7 @@ $updater->setBranch( 'main' );
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function slider_block_init() {
+function init() {
 
 	$block_json_files = glob( PIXALB_SLIDER_BLOCK_PATH . 'build/*/block.json' );
 
@@ -67,24 +65,24 @@ function slider_block_init() {
 		}
 	}
 }
-add_action( 'init', __NAMESPACE__ . '\slider_block_init' );
+add_action( 'init', __NAMESPACE__ . '\init' );
 
 /**
  * Registers the block textdomain.
  *
  * @return void
  */
-function slider_block_i18n() {
+function i18n() {
 	load_plugin_textdomain( 'slider-block', false, plugin_basename( PIXALB_SLIDER_BLOCK_PATH ) . '/languages' );
 }
-add_action( 'plugins_loaded', __NAMESPACE__ . '\slider_block_i18n' );
+add_action( 'init', __NAMESPACE__ . '\i18n' );
 
 /**
  * Handles JavaScript detection.
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  */
-function slider_block_js_detection() {
+function js_detection() {
 	echo "<script>!function(s){s.classList.contains('js')?s.classList:s.classList.add('js')}(document.documentElement);</script>\n";
 }
-add_action( 'wp_head', __NAMESPACE__ . '\slider_block_js_detection', 0 );
+add_action( 'wp_head', __NAMESPACE__ . '\js_detection', 0 );
