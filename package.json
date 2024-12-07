@@ -17,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/pixelalbatross/slider-block"
   },
-  "license": "GPL-2.0-or-later",
+  "license": "GPL-3.0-or-later",
   "main": "build/slider/index.js",
   "scripts": {
     "build": "wp-scripts build",
