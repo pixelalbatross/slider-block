@@ -17,7 +17,7 @@
  * @package           pixelalbatross/slider-block
  */
 
-namespace PixelAlbatross\WP\AccordionBlock;
+namespace PixelAlbatross\WP\SliderBlock;
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
