@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ### Fixed
 
+- Namespace.
 - load_plugin_textdomain.
 
 ## [0.6.1] - 2024-12-07
