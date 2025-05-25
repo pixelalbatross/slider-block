@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
+## [0.6.3] - 2025-05-26
+
+### Fixed
+
+- Pagination conditional check.
+
 ## [0.6.2] - 2024-12-07
 
 ### Changed

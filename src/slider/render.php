@@ -6,7 +6,7 @@
  * @var string    $content    Block default content.
  * @var \WP_Block $block      Block instance.
  *
- * @package pixelalbatross/slider-block
+ * @package SliderBlock
  */
 
 $options = wp_parse_args(
@@ -49,7 +49,7 @@ $extra_attributes = [
 		<div class="swiper-button-prev wp-block-pixelalbatross-slider__button-prev"></div>
 	<?php endif; ?>
 
-	<?php if ( ! empty( $attributes['navigation'] ) ) : ?>
+	<?php if ( ! empty( $attributes['pagination'] ) ) : ?>
 		<div class="swiper-pagination wp-block-pixelalbatross-slider__pagination"></div>
 	<?php endif; ?>
 

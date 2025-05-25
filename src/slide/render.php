@@ -6,7 +6,7 @@
  * @var string    $content    Block default content.
  * @var \WP_Block $block      Block instance.
  *
- * @package pixelalbatross/slider-block
+ * @package SliderBlock
  */
 
 $extra_attributes = [

@@ -7,7 +7,7 @@
 	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
 	<rule ref="Generic.Commenting.Todo"/>
 
-	<config name="minimum_supported_wp_version" value="6.1"/>
+	<config name="minimum_supported_wp_version" value="6.7"/>
 	<config name="testVersion" value="8.2-"/>
 
 	<rule ref="WordPress.WP.I18n">
