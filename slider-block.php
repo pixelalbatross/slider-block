@@ -5,7 +5,7 @@
  * Plugin URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=plugin-uri
  * Requires at least: 6.5
  * Requires PHP:      7.4
- * Version:           0.6.3
+ * Version:           0.6.4
  * Author:            Pixel Albatross
  * Author URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=author-uri
  * License:           GPL-3.0-or-later
