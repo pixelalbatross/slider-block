@@ -10,11 +10,6 @@ No styling is provided other than the essential [Swiper styles](https://swiperjs
 
 The icons are from [Themify Icons](https://themify.me/themify-icons).
 
-## Requirements
-
-* PHP 7.4+
-* WordPress 6.1+
-
 ## Installation
 
 `composer require pixelalbatross/slider-block`

@@ -3,9 +3,9 @@
  * Plugin Name:       Slider Block
  * Description:       Display a slider.
  * Plugin URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=plugin-uri
- * Requires at least: 6.5
+ * Requires at least: 6.7
  * Requires PHP:      7.4
- * Version:           0.6.4
+ * Version:           0.6.5
  * Author:            Pixel Albatross
  * Author URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=author-uri
  * License:           GPL-3.0-or-later
@@ -17,7 +17,7 @@
  * @package           SliderBlock
  */
 
-namespace PixelAlbatross\WP\SliderBlock;
+namespace PixelAlbatross\WP\Blocks\Slider;
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
@@ -26,10 +26,10 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'PIXALB_SLIDER_BLOCK_PATH', plugin_dir_path( __FILE__ ) );
+define( 'PIXELALBATROSS_SLIDER_BLOCK_PATH', plugin_dir_path( __FILE__ ) );
 
-if ( file_exists( PIXALB_SLIDER_BLOCK_PATH . 'vendor/autoload.php' ) ) {
-	require_once PIXALB_SLIDER_BLOCK_PATH . 'vendor/autoload.php';
+if ( file_exists( PIXELALBATROSS_SLIDER_BLOCK_PATH . 'vendor/autoload.php' ) ) {
+	require_once PIXELALBATROSS_SLIDER_BLOCK_PATH . 'vendor/autoload.php';
 }
 
 PucFactory::buildUpdateChecker(
@@ -47,7 +47,7 @@ PucFactory::buildUpdateChecker(
  */
 function init() {
 
-	$block_json_files = glob( PIXALB_SLIDER_BLOCK_PATH . 'build/*/block.json' );
+	$block_json_files = glob( PIXELALBATROSS_SLIDER_BLOCK_PATH . 'build/*/block.json' );
 
 	foreach ( $block_json_files as $filename ) {
 
@@ -59,7 +59,7 @@ function init() {
 				wp_set_script_translations(
 					$handle,
 					'slider-block',
-					PIXALB_SLIDER_BLOCK_PATH . 'languages'
+					PIXELALBATROSS_SLIDER_BLOCK_PATH . 'languages'
 				);
 			}
 		}
@@ -73,7 +73,7 @@ add_action( 'init', __NAMESPACE__ . '\init' );
  * @return void
  */
 function i18n() {
-	load_plugin_textdomain( 'slider-block', false, plugin_basename( PIXALB_SLIDER_BLOCK_PATH ) . '/languages' );
+	load_plugin_textdomain( 'slider-block', false, plugin_basename( PIXELALBATROSS_SLIDER_BLOCK_PATH ) . '/languages' );
 }
 add_action( 'init', __NAMESPACE__ . '\i18n' );
 
