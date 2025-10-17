@@ -13,8 +13,6 @@
  * Update URI:        https://pixelalbatross.pt/
  * GitHub Plugin URI: https://github.com/pixelalbatross/slider-block
  * Text Domain:       slider-block
- *
- * @package           SliderBlock
  */
 
 namespace PixelAlbatross\WP\Blocks\Slider;
