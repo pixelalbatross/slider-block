@@ -7,6 +7,8 @@
  * @var \WP_Block $block      Block instance.
  */
 
+namespace PixelAlbatross\WP\Blocks\Slider;
+
 $extra_attributes = [
 	'class' => 'swiper-slide',
 ];
