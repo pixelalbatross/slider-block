@@ -78,4 +78,5 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Swiper version to 9.4.1.
 
 ## [0.1.0] - 2023-06-16
+
 - Initial release.

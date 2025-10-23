@@ -11,11 +11,6 @@ import { Icon } from './icon';
 import Edit from './edit';
 import Save from './save';
 
-/**
- * Every block starts by registering a new block type definition.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
 registerBlockType(metadata.name, {
 	icon: Icon,
 	edit: Edit,
