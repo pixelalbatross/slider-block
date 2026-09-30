@@ -5,7 +5,7 @@
  * Plugin URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=plugin-uri
  * Requires at least: 6.7
  * Requires PHP:      7.4
- * Version:           0.7.1
+ * Version:           0.7.2
  * Author:            Pixel Albatross
  * Author URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=author-uri
  * License:           GPL-3.0-or-later
@@ -94,6 +94,12 @@ function replacement_notice() {
 	$screen = get_current_screen();
 
 	if ( ! $screen || 'plugins' !== $screen->id || ! current_user_can( 'activate_plugins' ) ) {
+		return;
+	}
+
+	$show_notice = (bool) apply_filters( 'pixelalbatross_slider_block_show_replacement_notice', true );
+
+	if ( ! $show_notice ) {
 		return;
 	}
 
