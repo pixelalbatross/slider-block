@@ -5,7 +5,7 @@
  * Plugin URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=plugin-uri
  * Requires at least: 6.7
  * Requires PHP:      7.4
- * Version:           0.7.3
+ * Version:           0.7.4
  * Author:            Pixel Albatross
  * Author URI:        https://pixelalbatross.pt/?utm_source=wp-plugins&utm_medium=slider-block&utm_campaign=author-uri
  * License:           GPL-3.0-or-later
@@ -107,8 +107,8 @@ function replacement_notice() {
 		sprintf(
 			/* translators: 1: Outstand Carousel URL, 2: migration guide URL. */
 			__( 'Slider Block is no longer maintained. It is replaced by <a href="%1$s">Outstand Carousel</a>, which can run alongside it while you migrate. Follow the <a href="%2$s">migration guide</a> to convert your sliders in the editor or with WP-CLI.', 'slider-block' ),
-			esc_url( 'https://github.com/s3rgiosan/outstand-carousel' ),
-			esc_url( 'https://github.com/s3rgiosan/outstand-carousel/blob/main/MIGRATING.md' )
+			esc_url( 'https://github.com/pixelalbatross/outstand-carousel' ),
+			esc_url( 'https://github.com/pixelalbatross/outstand-carousel/blob/main/MIGRATING.md' )
 		),
 		[
 			'type'        => 'warning',

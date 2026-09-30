@@ -3,7 +3,7 @@
 > The slider block lets users showcase images and relevant content on a page in an engaging and interactive way.
 
 > [!IMPORTANT]
-> **This plugin is no longer maintained.** It is replaced by [Outstand Carousel](https://github.com/s3rgiosan/outstand-carousel), which runs alongside it while you migrate. Follow the [migration guide](https://github.com/s3rgiosan/outstand-carousel/blob/main/MIGRATING.md) to convert your sliders in the editor or with WP-CLI.
+> **This plugin is no longer maintained.** It is replaced by [Outstand Carousel](https://github.com/pixelalbatross/outstand-carousel), which runs alongside it while you migrate. Follow the [migration guide](https://github.com/pixelalbatross/outstand-carousel/blob/main/MIGRATING.md) to convert your sliders in the editor or with WP-CLI.
 
 ## Description
 
