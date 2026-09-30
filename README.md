@@ -2,6 +2,9 @@
 
 > The slider block lets users showcase images and relevant content on a page in an engaging and interactive way.
 
+> [!IMPORTANT]
+> **This plugin is no longer maintained.** It is replaced by [Outstand Carousel](https://github.com/s3rgiosan/outstand-carousel), which runs alongside it while you migrate. Follow the [migration guide](https://github.com/s3rgiosan/outstand-carousel/blob/main/MIGRATING.md) to convert your sliders in the editor or with WP-CLI.
+
 ## Description
 
 A responsive and accessible slider/carousel block for the WordPress block editor, built on top of [Swiper](https://swiperjs.com/). [Swiper](https://swiperjs.com/) is a modern mobile touch slider with hardware accelerated transitions and amazing native behavior.
