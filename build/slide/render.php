@@ -9,6 +9,8 @@
 
 namespace PixelAlbatross\WP\Blocks\Slider;
 
+defined( 'ABSPATH' ) || exit;
+
 $extra_attributes = [
 	'class' => 'swiper-slide',
 ];

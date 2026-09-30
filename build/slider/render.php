@@ -9,6 +9,8 @@
 
 namespace PixelAlbatross\WP\Blocks\Slider;
 
+defined( 'ABSPATH' ) || exit;
+
 $options = wp_parse_args(
 	$attributes,
 	[
