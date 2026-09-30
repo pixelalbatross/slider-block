@@ -244,3 +244,9 @@ msgstr "slider"
 msgctxt "block keyword"
 msgid "carousel"
 msgstr "carrossel"
+
+#. translators: 1: Outstand Carousel URL, 2: migration guide URL.
+#: slider-block.php:103
+#, php-format
+msgid "Slider Block is no longer maintained. It is replaced by <a href=\"%1$s\">Outstand Carousel</a>, which can run alongside it while you migrate. Follow the <a href=\"%2$s\">migration guide</a> to convert your sliders in the editor or with WP-CLI."
+msgstr "O Slider Block deixou de ser mantido. Foi substituído pelo <a href=\"%1$s\">Outstand Carousel</a>, que pode funcionar em simultâneo enquanto faz a migração. Siga o <a href=\"%2$s\">guia de migração</a> para converter os seus sliders no editor ou com o WP-CLI."
