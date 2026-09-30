@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
+## [0.7.3] - 2026-09-30
+
+### Fixed
+
+- Prevent direct access to the block render files.
+
+## [0.7.2] - 2026-09-30
+
+### Added
+
+- A way for developers to hide the replacement notice.
+
 ## [0.7.1] - 2026-09-30
 
 ### Added
