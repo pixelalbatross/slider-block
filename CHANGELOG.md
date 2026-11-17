@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/).
 
+## [0.7.5] - 2026-11-17
+
+### Changed
+
+- Link to the migration guide in Outstand Carousel 1.7.0, which brings back the editor transform and the WP-CLI command.
+
 ## [0.7.4] - 2026-09-30
 
 ### Changed
